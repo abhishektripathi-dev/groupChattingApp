@@ -19,11 +19,11 @@ app.use("/api/auth", userRoutes);
 sequelize
     .sync()
     .then(() => {
-        console.log("DB is sync");
-        app.listen(PORT, () => {
-            console.log(`Server is runnig on PORT ${PORT}.`);
-        });
+        console.log("Database synced successfully.");
+        app.listen(PORT, () =>
+            console.log(`Server running on http://localhost:${PORT}`)
+        );
     })
     .catch((err) => {
-        console.log(err);
+        console.error("Error syncing database:", err);
     });
